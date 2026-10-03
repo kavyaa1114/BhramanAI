@@ -28,22 +28,13 @@ The result is an intelligent travel assistant capable of taking user preferences
   - [8. Trip Management](#8--trip-management)
   - [9. Bookings](#9--bookings)
   - [10. User Profile](#10--user-profile)
-- [Technology Stack](#-technology-stack)
-- [System Architecture](#-system-architecture)
+- [Technology Stack](#️-technology-stack)
 - [Implementation Flowchart](#-implementation-flowchart)
-- [End-to-End Workflow](#-end-to-end-workflow)
-- [Multi-Agent Architecture](#-multi-agent-architecture)
-- [MCP Architecture](#-mcp-architecture)
+- [How BhramanAI Works](#-how-bhramanai-works)
 - [Project Structure](#-project-structure)
-- [Backend Architecture](#-backend-architecture)
-- [Frontend Architecture](#-frontend-architecture)
-- [Database Architecture](#-database-architecture)
-- [AI & LLM Pipeline](#-ai--llm-pipeline)
-- [Installation & Setup](#-installation--setup)
+- [Application Testing Guide](#-application-testing-guide)
+- [Installation and Setup](#️-installation--setup)
 - [Environment Variables](#-environment-variables)
-- [Running the Application](#-running-the-application)
-- [Application Walkthrough](#-application-walkthrough)
-- [Engineering Challenges & Solutions](#-engineering-challenges--solutions)
 - [Future Improvements](#-future-improvements)
 - [Contributors](#-contributors)
 - [Conclusion](#-conclusion)
@@ -98,6 +89,21 @@ The frontend provides dedicated authentication pages including:
 
 ---
 
+### Sign In
+
+The login page provides users with authentication options and access to the BhramanAI platform.
+
+![Sign In](docs/images/signinpage.png)
+
+### Authenticated Application
+
+After authentication, users can access the application's travel-planning features.
+
+![Post Login](docs/images/postlogin.png)
+
+
+---
+
 ## 2. 🗺️ AI Trip Planning
 
 BhramanAI provides an AI-powered trip planning system that allows users to create a complete travel plan based on their preferences.
@@ -118,6 +124,33 @@ The generated trip is then stored in MongoDB and made available to the user thro
 
 ---
 
+### Trip Planner
+
+The planner collects the information required to generate a personalized trip.
+
+#### Destination
+
+![Planner Destination](docs/images/plannerpage1.png)
+
+#### Travel Dates
+
+![Planner Dates](docs/images/plannerpage2.png)
+
+#### Budget and Travellers
+
+![Planner Budget](docs/images/plannerpage3.png)
+
+#### Interests
+
+![Planner Interests](docs/images/plannerpage4.png)
+
+#### Generate Itinerary
+
+![Generate Itinerary](docs/images/plannerpage5.png)
+
+
+---
+
 ## 3. 💬 Conversational Travel Planning
 
 BhramanAI also provides a conversational interface for interacting with the travel-planning system.
@@ -129,6 +162,17 @@ The conversational system can understand travel-related requests and coordinate 
 The generated itinerary can then be presented directly within the conversation, allowing users to move from planning to viewing their complete trip.
 
 This provides a more natural way of interacting with the travel-planning platform.
+
+---
+
+### AI Travel Chatbot
+
+![Trip Chatbot](docs/images/tripchatbot.png)
+
+### Trip Generated Through Chat
+
+![Trip From Chatbot](docs/images/tripfromchatbot.png)
+
 
 ---
 
@@ -199,6 +243,23 @@ Users can access the generated itinerary through the trip interface and view the
 
 ---
 
+### AI Itinerary Generation
+
+The application displays the progress of the AI-powered travel-planning process while the itinerary is being generated.
+
+![Itinerary Generation](docs/images/itinerarygeneration.png)
+
+### Generated Itinerary
+
+Once generation is complete, users can view their personalized multi-day itinerary.
+
+![Trip Itinerary](docs/images/tripitinerary.png)
+
+The itinerary provides day-wise travel information including activities, sightseeing, and meal recommendations.
+
+
+---
+
 ## 7. 📍 Travel Recommendations
 
 BhramanAI provides recommendations to help users make decisions during their trip planning.
@@ -214,6 +275,13 @@ The recommendation system can provide travel-related options such as:
 The frontend presents these recommendations in a structured interface, allowing users to explore available options and select relevant activities for their trip.
 
 The application also provides an activity-swapping interface, allowing users to modify activities within their generated travel plan.
+
+---
+
+### Recommendations
+
+![Recommendations](docs/images/recommendations.png)
+
 
 ---
 
@@ -234,6 +302,21 @@ Trip and itinerary information is persisted in MongoDB, allowing users to access
 
 ---
 
+### My Trips
+
+The My Trips section allows authenticated users to access their previously generated travel plans.
+
+![My Trips](docs/images/mytripspage.png)
+
+### Detailed Trip View
+
+The detailed trip interface provides a complete view of the generated travel plan, including the itinerary and estimated trip information.
+
+![View Trip](docs/images/viewtrip.png)
+
+
+---
+
 ## 9. 🎫 Bookings
 
 BhramanAI provides a dedicated bookings section within the application.
@@ -244,6 +327,15 @@ The application separates booking functionality from the trip-planning workflow 
 
 ---
 
+### My Bookings
+
+The bookings section provides a dedicated interface for managing travel-related booking information.
+
+![My Bookings](docs/images/mybookings.png)
+
+
+---
+
 ## 10. 👤 User Profile
 
 BhramanAI provides a dedicated profile section for authenticated users.
@@ -251,6 +343,15 @@ BhramanAI provides a dedicated profile section for authenticated users.
 The profile page allows users to access their account-related information and manage their personal application details.
 
 User information is associated with the authenticated account and stored through the backend using MongoDB.
+
+---
+
+### User Profile
+
+Users can access their account-related information through the dedicated profile interface.
+
+![User Profile](docs/images/profile.png)
+
 
 ---
 
@@ -443,102 +544,6 @@ Users can open the recommendations section to explore available hotels, activiti
 ### Step 7: Manage Trips
 
 Previously generated trips can be accessed from the **My Trips** section.
-
----
-
-# 🖥️ Application Screenshots
-
-## 🔐 Sign In
-
-The login page provides users with authentication options and access to the BhramanAI platform.
-
-![Sign In](docs/images/signinpage.png)
-
----
-
-## 👤 Authenticated Home
-
-After authentication, users can access the application's travel-planning features.
-
-![Post Login](docs/images/postlogin.png)
-
----
-
-## 🗺️ Trip Planner
-
-The planner collects the information required to generate a personalized trip.
-
-### Destination
-
-![Planner Destination](docs/images/plannerpage1.png)
-
-### Travel Dates
-
-![Planner Dates](docs/images/plannerpage2.png)
-
-### Budget and Travellers
-
-![Planner Budget](docs/images/plannerpage3.png)
-
-### Interests
-
-![Planner Interests](docs/images/plannerpage4.png)
-
-### Generate Itinerary
-
-![Generate Itinerary](docs/images/plannerpage5.png)
-
----
-
-## 🤖 AI Itinerary Generation
-
-The application displays the progress of the AI-powered travel-planning process while the itinerary is being generated.
-
-![Itinerary Generation](docs/images/itinerarygeneration.png)
-
----
-
-## 🧳 Generated Itinerary
-
-Once generation is complete, users can view their personalized multi-day itinerary.
-
-![Trip Itinerary](docs/images/tripitinerary.png)
-
-The itinerary provides day-wise travel information including activities, sightseeing, and meal recommendations.
-
-![Trip From Chatbot](docs/images/tripfromchatbot.png)
-
----
-
-## 📅 Detailed Trip View
-
-The detailed trip interface provides a complete view of the generated travel plan, including the itinerary and estimated trip information.
-
-![View Trip](docs/images/viewtrip.png)
-
----
-
-## 📍 Recommendations
-
-Users can explore available recommendations for hotels and activities and select options relevant to their trip.
-
-![Recommendations](docs/images/recommendations.png)
-
----
-
-## 🗂️ My Trips
-
-The My Trips section allows authenticated users to access their previously generated travel plans.
-
-![My Trips](docs/images/mytripspage.png)
-
----
-
-## 🎫 My Bookings
-
-The bookings section provides a dedicated interface for managing travel-related booking information.
-
-![My Bookings](docs/images/mybookings.png)
 
 ---
 
