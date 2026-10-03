@@ -283,7 +283,7 @@ BhramanAI combines modern web-development technologies with AI orchestration fra
 
 The following flowchart represents the overall working architecture of BhramanAI, showing how the frontend, backend, multi-agent system, MCP servers, external services, and database work together.
 
-![BhramanAI Implementation Flowchart](docs/images/bhramanai-architecture.png)
+![BhramanAI Implementation Flowchart](docs/images/brahmanai_flowchart.png)
 
 ---
 
