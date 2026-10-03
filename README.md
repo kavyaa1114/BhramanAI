@@ -456,14 +456,6 @@ The login page provides users with authentication options and access to the Bhra
 
 ---
 
-## 🏠 Homepage
-
-The homepage introduces BhramanAI and provides users with access to the AI-powered travel-planning experience.
-
-![Homepage](docs/images/homepage.png)
-
----
-
 ## 👤 Authenticated Home
 
 After authentication, users can access the application's travel-planning features.
