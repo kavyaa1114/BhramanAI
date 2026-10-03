@@ -707,7 +707,9 @@ The project brings together full-stack development, AI engineering, API integrat
 
 ### BhramanAI Development Team
 
-This project was developed as a collaborative full-stack AI application, combining frontend development, backend engineering, AI agent orchestration, MCP-based tool integration, and database management by:
+BhramanAI is a collaborative **AI-powered travel planning platform** developed by:
 
 **Aryan Singh**<br>
 **Kavya Gupta**
+
+Together, we worked across **AI agent development, LLM orchestration, MCP-based tool integration, backend engineering, frontend development, API integration, and database management** to build the complete application.
