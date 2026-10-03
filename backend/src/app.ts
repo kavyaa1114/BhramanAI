@@ -1,0 +1,60 @@
+import express from 'express';
+import cors from 'cors';
+import session from 'express-session';
+import MongoStore from 'connect-mongo';
+import passport from 'passport';
+import authRoutes from './api/routes/auth.routes.js';
+import './config/passport.config.js';
+import tripRoutes from './api/routes/trip.routes.js';
+import itineraryRoutes from './api/routes/itinerary.routes.js';
+import userRoutes from './api/routes/user.routes.js';
+import chatRoutes from './api/routes/chat.routes.js'
+import recommendationRoutes from './api/routes/recommendation.routes.js'
+import { notFoundHandler, globalErrorHandler } from './api/middlewares/error.middleware.js';
+
+const app = express();
+
+app.use(cors({
+  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+  credentials: true
+}));
+
+app.use(express.json({ limit: '5mb' }));
+app.use(express.urlencoded({ extended: true }));
+
+// Session configuration
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'secret-key',
+  resave: false,
+  saveUninitialized: false,
+  store: MongoStore.create({ 
+    mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost:27017/bhramanai'
+  }),
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24, // 24 hours
+    httpOnly: true,
+    sameSite: 'lax'
+  }
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Routes
+app.use('/api/auth', authRoutes);
+app.use('/api/v1/trips', tripRoutes);
+app.use('/api/v1/itineraries', itineraryRoutes);
+app.use('/api/v1/users', userRoutes);
+app.use('/api/v1/chat', chatRoutes);
+app.use('/api/v1/recommendations', recommendationRoutes);
+
+// Health check
+app.get('/health', (req, res) => {
+  res.json({ status: 'OK', message: 'Server running' });
+});
+
+// ── Global Error Handling (must be AFTER all routes) ──
+app.use(notFoundHandler);      // Catches unmatched routes → 404
+app.use(globalErrorHandler);   // Catches all thrown errors → proper JSON response
+
+export default app;
