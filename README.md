@@ -707,4 +707,6 @@ The project brings together full-stack development, AI engineering, API integrat
 
 ### BhramanAI Development Team
 
-This project was developed as a collaborative full-stack AI application, combining frontend development, backend engineering, AI agent orchestration, MCP-based tool integration, and database management.
+This project was developed as a collaborative full-stack AI application, combining frontend development, backend engineering, AI agent orchestration, MCP-based tool integration, and database management by:
+Aryan Singh
+Kavya Gupta
